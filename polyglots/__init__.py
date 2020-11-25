@@ -2,6 +2,7 @@ from    binascii    import    crc32
 from       io       import    BytesIO
 from       os       import    remove, system
 from     struct     import    unpack, pack
+from      sys       import    platform
 from     tarfile    import    TarFile, open as topen
 from     zipfile    import    ZipInfo, ZipFile
 class FType(object):
@@ -321,7 +322,8 @@ class pdf(FType):
     def normalize(self):
         open("host.pdf", "wb").write(self.data)
         open("blank.pdf", "wb").write(b'%PDF-1.3\n%\x00\xb5\xc2\xb6\n\n1 0 obj\n<</Type/Catalog/Pages 2 0 R>>\nendobj\n\n2 0 obj\n<</Kids[3 0 R]/Type/Pages>>\nendobj\n\n3 0 obj\n<</Type/Page/Contents 4 0 R>>\nendobj\n\n4 0 obj\n<<>>\nendobj\n\nxref\n0 5\n0000000000 65536 f \n0000000016 00000 n \n0000000062 00000 n \n0000000106 00000 n \n0000000152 00000 n \n\ntrailer\n<</Size 5/Root 1 0 R>>\nstartxref\n173\n%%EOF\n')
-        rval = system('mutool merge -o merged.pdf blank.pdf host.pdf') #
+        rval = system('mutool merge -o merged.pdf blank.pdf host.pdf')
+        if rval: system('cls' if 'win' in platform else 'clear')
         remove('host.pdf')
         remove('blank.pdf')
         dm = open("merged.pdf", "rb").read()
