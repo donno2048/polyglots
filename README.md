@@ -1,8 +1,7 @@
-To use it just do:
+To use it just run:
 ```py
-py -m polyglots InputFile1.ext1 InputFile2.ext2 outputfile
+py -m polyglots
 ```
-in the folder your input files are in
 
 [Available formats:](https://github.com/donno2048/polyglots/blob/main/polyglots/__main__.py#L7)
 
