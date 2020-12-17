@@ -526,9 +526,7 @@ def bpg2(s):
         if c <= 0x80: break
     return n, i + 1
 def Do(ftype1, ftype2, fn1, fn2, target):
-    if ftype1 == ftype2 == fn1 == fn2 == target == None: return [\
-        arj, ar, bmp, bpg, cpio, cab, ebml, flac, flv, gif, icc, ico, ilda, java, jp2, jpg, lnk, id3v2, nes, ogg, pcap, pcapng, pe_hdr, pe_sec, png, psd, riff, svg, tiff, wasm, xz, _7z, mp4, pdf, gzip, bzip2, postscript, zip_, rar, rtf, dcm, tar, pdfc, iso, id3v1\
-        ] # ;)
+    if ftype1 == ftype2 == fn1 == fn2 == target == None: return [arj, ar, bmp, bpg, cpio, cab, ebml, flac, flv, gif, icc, ico, ilda, java, jp2, jpg, lnk, id3v2, nes, ogg, pcap, pcapng, pe_hdr, pe_sec, png, psd, riff, svg, tiff, wasm, xz, _7z, mp4, pdf, gzip, bzip2, postscript, zip_, rar, rtf, dcm, tar, pdfc, iso, id3v1]
     if ftype1.bAppData and ftype2.start_o and len(ftype1.data) < ftype2.start_o: open(target, "wb").write(ftype1.data + ftype1.wrappend(ftype2.data))
     if ftype1.bParasite and (ftype1.parasite_o <= ftype2.start_o + ftype2.precav_s) and ftype1.parasite_s >= len(ftype2.data):
         parasitized, swaps = ftype1.parasitize(ftype2)
