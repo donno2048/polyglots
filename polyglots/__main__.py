@@ -537,7 +537,7 @@ def Do(ftype1, ftype2, fn1, fn2, target):
         zipper, swaps = ftype1.zipper(ftype2)
         if (zipper is not None) or swaps: open(target, "wb").write(zipper)
     if ftype1.bAppData and ftype2.precav_s and len(ftype1.data) <= ftype2.precav_s: open(target, "wb").write(ftype1.data + ftype1.wrappend(ftype2.data[len(ftype1.data + ftype1.wrappend(b"")):]))
-if __name__ == "__main__":
+def main():
     Tk().withdraw()
     types = ['7z', 'ar', 'arj', 'bmp', 'bpg', 'bzip2', 'cab', 'cpio', 'dcm', 'ebml', 'flac', 'flv', 'gif', 'gzip', 'icc', 'ico', 'id3v1', 'id3v2', 'ilda', 'iso', 'java', 'jp2', 'jpg', 'lnk', 'mp4', 'nes', 'ogg', 'pcap', 'pcapng', 'pdf', 'pdfc', 'pe_hdr', 'pe_sec', 'png', 'postscript', 'psd', 'rar', 'riff', 'rtf', 'svg', 'tar', 'tiff', 'wasm', 'xz', 'zip']
     fn1 = askopenfilename(filetypes = ((i+" files", "*."+i) for i in types))
@@ -554,3 +554,4 @@ if __name__ == "__main__":
         try: remove(fn3)
         except: pass
         Do(ftype2, ftype1, fn2, fn1, fn3)
+if __name__ == "__main__": main()
