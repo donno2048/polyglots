@@ -1,6 +1,6 @@
 To use it just run:
 ```py
-py -m polyglots
+polyglots
 ```
 
 If you run this on a zip and a pdf for example, you will end-up with a file you can open as a pdf or as a zip and is actually containing the content of the origin files
