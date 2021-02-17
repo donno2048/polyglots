@@ -541,11 +541,11 @@ def main():
     Tk().withdraw()
     types = ['7z', 'ar', 'arj', 'bmp', 'bpg', 'bzip2', 'cab', 'cpio', 'dcm', 'ebml', 'flac', 'flv', 'gif', 'gzip', 'icc', 'ico', 'id3v1', 'id3v2', 'ilda', 'iso', 'java', 'jp2', 'jpg', 'lnk', 'mp4', 'nes', 'ogg', 'pcap', 'pcapng', 'pdf', 'pdfc', 'pe_hdr', 'pe_sec', 'png', 'postscript', 'psd', 'rar', 'riff', 'rtf', 'svg', 'tar', 'tiff', 'wasm', 'xz', 'zip']
     fn1 = askopenfilename(filetypes = ((i+" files", "*."+i) for i in types))
-    if not fn1: break
+    if not fn1: exit()
     fn2 = askopenfilename(filetypes = ((i+" files", "*."+i) for i in types if not fn1.endswith(i)))
-    if not fn2: break
+    if not fn2: exit()
     fn3 = asksaveasfilename(filetypes = [("No extension", "*.*")])
-    if not fn3: break
+    if not fn3: exit()
     fdata1, fdata2 = open(fn1, "rb").read(), open(fn2, "rb").read()
     fdata1, fdata2, ftype1, ftype2 = fdata1 + b"\1" * (-len(fdata1)), fdata2 + b"\1" * (-len(fdata2)), None, None
     for parser in [arj, ar, bmp, bpg, cpio, cab, ebml, flac, flv, gif, icc, ico, ilda, java, jp2, jpg, lnk, id3v2, nes, ogg, pcap, pcapng, pe_hdr, pe_sec, png, psd, riff, svg, tiff, wasm, xz, _7z, mp4, pdf, gzip, bzip2, postscript, zip_, rar, rtf, dcm, tar, pdfc, iso, id3v1]:
