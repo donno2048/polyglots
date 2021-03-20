@@ -26,7 +26,7 @@ class FType(object):
     def parasitize(self, fparasite):
         self.normalize()
         cut = self.getCut()
-        prewrap_s, parasite = self.cutparasite(fparasite, self.wrapparasite(fparasite, self.fixparasite(fparasite.data), cut), cut).items()
+        prewrap_s, parasite = self.cutparasite(fparasite, self.wrapparasite(fparasite, self.fixparasite(fparasite.data), cut), cut)
         return (None, []) if prewrap_s is None or len(self.fixparasite(fparasite.data)) > self.parasite_s else (self.fixformat(self.data[:cut] + self.wrap(parasite) + self.data[cut:], len(self.wrap(parasite))), [cut + prewrap_s, cut + len(self.wrap(parasite)) - self.postwrap,])
     def zipper(self, fhost): return None, []
 class _7z(FType):
