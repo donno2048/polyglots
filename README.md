@@ -3,7 +3,7 @@ From Pypi:
 
 `py -m pip install polyglots`
 
-From GitHub:
+From GitHub (recommended):
 
 `py -m pip install git+https://github.com/donno2048/polyglots`
 
