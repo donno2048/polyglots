@@ -6,7 +6,7 @@ from         io         import    BytesIO
 from         os         import    remove, system
 from       struct       import    unpack, pack
 from        sys         import    platform
-from       tarfile      import    TarFile, open as topen
+from       tarfile      import    open as topen
 from       zipfile      import    ZipInfo, ZipFile
 class FType(object):
     def __init__(self, data=""): self.precav_o, self.precav_s, self.prewrap, self.postwrap, self.start_o, self.bAppData, self.type, self.data, self.cut, self.bParasite, self.parasite_o, self.parasite_s, self.bZipper = 0, 0, 0, 0, 0, True, "", data, None, False, None, None, False
