@@ -1,6 +1,11 @@
 To understand better what this does read the [example readme](https://github.com/donno2048/polyglots/tree/main/examples)
 
 # install
+
+You might need to install tkinter to use it:
+
+`sudo apt-get install python3-tk -y`
+
 From Pypi:
 
 `py -m pip install polyglots`
