@@ -10,5 +10,6 @@ setup(
     license='MIT',
     author='Elisha Hollander',
     classifiers=['Programming Language :: Python :: 3'],
+    install_requires=['tk'],
     entry_points={ 'console_scripts': [ 'polyglots=polyglots.__main__:main' ] }
 )
