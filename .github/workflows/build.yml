@@ -11,11 +11,11 @@ jobs:
     - run: |
         python -m pip install --upgrade pip
         pip install pyinstaller
-        pyinstaller -n polyglots -F --add-data "polyglots/__init__.py:." --distpath . -w "polyglots/__main__.py"
+        pyinstaller -n ubuntu-polyglots -F --add-data "polyglots/__init__.py:." --distpath . -w "polyglots/__main__.py"
     - uses: actions/upload-artifact@master
       with:
-        name: "polyglots"
-        path: "polyglots"
+        name: "ubuntu-polyglots"
+        path: "ubuntu-polyglots"
   windows:
     runs-on: windows-latest
     steps:
