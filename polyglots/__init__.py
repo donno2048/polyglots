@@ -284,7 +284,6 @@ class xz(File):
 	def __init__(self,data=''):File.__init__(self,data);self.DESC,self.TYPE,self.MAGIC,self.data,self.bAppData,self.bParasite='XZ','XZ',b'\xfd7zXZ\x00',data,False,False
 	def identify(self):return self.data.startswith(self.MAGIC)
 class zip_(File):
-	__name__='zip'
 	def __init__(self,data=''):File.__init__(self,data);self.DESC,self.TYPE,self.MAGIC,self.data,self.bParasite,self.parasite_o,self.parasite_s,self.start_o='Zip','Zip',b'PK\x03\x04',data,True,30,16777215,4194304
 	def identify(self):return self.data.startswith(self.MAGIC)
 	def parasitize(self,fparasite):
