@@ -1,0 +1,33 @@
+name: Build executable
+on: [workflow_dispatch]
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pyinstaller -n polyglots -F --add-data "polyglots\__init__.py:." --distpath . -w "polyglots\__main__.py"
+    - uses: actions/upload-artifact@master
+      with:
+        name: "polyglots"
+        path: "polyglots"
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pyinstaller -n polyglots -F --add-data "polyglots\__init__.py;." --distpath . -w "polyglots\__main__.py"
+    - uses: actions/upload-artifact@master
+      with:
+        name: "polyglots.exe"
+        path: "polyglots.exe"

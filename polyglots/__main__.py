@@ -1,8 +1,10 @@
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
+from sys import exit
 from os import remove
 from os.path import isfile
-from . import Types, save
+try: from . import Types, save
+except ImportError: from __init__ import Types, save
 def main():
     Tk().withdraw()
     types = ["*"] + list(map(lambda i: i.__name__.strip("_"), Types))
