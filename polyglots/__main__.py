@@ -21,7 +21,7 @@ def main():
         ftype1, ftype2 = (f1 if f1.identify() else ftype1), (f2 if f2.identify() else ftype2)
     if len({ftype1, ftype2, None}) != 3: exit("Unknown file type or same file types")
     try: save(ftype1, ftype2, fn3)
-    except:
+    except Exception:
         if isfile(fn3):
             remove(fn3)
         save(ftype2, ftype1, fn3)
